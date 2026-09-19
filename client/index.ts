@@ -30,7 +30,7 @@ RegisterKeyMapping(
     "roserp_test_toast",
     "RoseRP: testar Toast",
     "keyboard",
-    "APOSTROPHE",
+    "OEM_7",
 );
 
 on("onClientResourceStart", (resourceName: string) => {
