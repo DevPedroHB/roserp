@@ -11,7 +11,10 @@
 		"format": "biome format --write",
 		"check": "biome check --write",
 		"build:web": "vite build",
-		"build:fivem": "node scripts/build-fivem.mjs"
+		"build:fivem": "node scripts/build-fivem.mjs",
+		"typecheck:fivem:client": "tsc -p tsconfig.fivem.client.json",
+		"typecheck:fivem:server": "tsc -p tsconfig.fivem.server.json",
+		"typecheck:fivem": "pnpm typecheck:fivem:client && pnpm typecheck:fivem:server"
 	},
 	"dependencies": {
 		"@base-ui/react": "^1.8.0",
@@ -38,8 +41,8 @@
 		"babel-plugin-react-compiler": "^1.0.0",
 		"typescript": "^7.0.2",
 		"vite": "^8.3.0",
-		"@citizenfx/client": "^2.0.0",
-		"@citizenfx/server": "^2.0.0",
-		"esbuild": "^0.25.0"
+		"@citizenfx/client": "2.0.35805-1",
+		"@citizenfx/server": "2.0.35805-1",
+		"esbuild": "0.25.0"
 	}
 }
