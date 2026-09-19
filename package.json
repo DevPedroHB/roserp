@@ -5,11 +5,18 @@
 	"type": "module",
 	"scripts": {
 		"start:dev": "vite --host",
-		"build": "tsc -b && vite build",
+		"build": "pnpm build:web && pnpm build:fivem",
 		"lint": "biome lint --write",
 		"preview": "vite preview",
 		"format": "biome format --write",
-		"check": "biome check --write"
+		"check": "biome check --write",
+		"build:web": "vite build",
+		"typecheck:fivem:client": "tsc -p tsconfig.fivem.client.json",
+		"typecheck:fivem:server": "tsc -p tsconfig.fivem.server.json",
+		"typecheck:fivem": "pnpm typecheck:fivem:client && pnpm typecheck:fivem:server",
+		"build:fivem:client": "vite build --config vite.fivem.config.ts --mode client",
+		"build:fivem:server": "vite build --config vite.fivem.config.ts --mode server",
+		"build:fivem": "pnpm build:fivem:client && pnpm build:fivem:server"
 	},
 	"dependencies": {
 		"@base-ui/react": "^1.8.0",
@@ -35,6 +42,8 @@
 		"@vitejs/plugin-react": "^6.1.1",
 		"babel-plugin-react-compiler": "^1.0.0",
 		"typescript": "^7.0.2",
-		"vite": "^8.3.0"
+		"vite": "^8.3.0",
+		"@citizenfx/client": "2.0.35805-1",
+		"@citizenfx/server": "2.0.35805-1"
 	}
 }
